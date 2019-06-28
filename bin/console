@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+require 'pry'
+
+$: << File.expand_path('lib')
+
+Dir.glob('lib/**/*.rb').each do |f|
+  require f.delete_prefix('lib/').delete_suffix('.rb')
+end
+
+Pry.start
